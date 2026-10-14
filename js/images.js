@@ -43,4 +43,4 @@ const IMG = {
 };
 
 // helper used by the screens (don't edit)
-const pic = p => p ? `--img:url('${p}');` : '';
+const pic = p => p ? `background-image:url('${p}');` : '';

@@ -1,34 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <title>Sportyfy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<head>
+  <meta charset="utf-8">
+  <title>Sportyfy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <!-- Font: Plus Jakarta Sans -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Font: Plus Jakarta Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
 
-  <body>
-    <!-- ============================================================
+<body>
+  <!-- ============================================================
        APP CANVAS (390 x 844). Every screen is drawn into #v
        by js/app.js. No need to edit this part.
        ============================================================ -->
-    <div class="phone">
-      <div class="app">
-        <div id="v"><!-- current screen --></div>
-        <nav id="n"><!-- bottom navigation --></nav>
-        <div id="sh"><!-- bottom sheet (filter) --></div>
-      </div>
+  <div class="phone">
+    <div class="app">
+      <div id="v"><!-- current screen --></div>
+      <nav id="n"><!-- bottom navigation --></nav>
+      <div id="sh"><!-- bottom sheet (filter) --></div>
     </div>
+  </div>
 
-    <!-- ============================================================
+  <!-- ============================================================
        WHERE TO CHANGE THINGS
        Photos ........ assets/images/  (list of paths: js/images.js)
        Colors/style .. css/style.css   (see :root at the top)
@@ -38,18 +35,26 @@
        Replace QR .... js/components.js    (const QR)
        ============================================================ -->
 
-    <!-- Icons (Lucide) -->
-    <script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <!-- Icons (Lucide) -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
 
-    <!-- App scripts · keep this order -->
-    <script src="js/images.js"></script>
-    <script src="js/data.js"></script>
-    <script src="js/components.js"></script>
-    <script src="js/screens-main.js"></script>
-    <script src="js/screens-flow.js"></script>
-    <script src="js/screens-organizer.js"></script>
-    <script src="js/screens-admin.js"></script>
-    <script src="js/screens-chat.js"></script>
-    <script src="js/app.js"></script>
-  </body>
+  <!-- App scripts · keep this order -->
+  <script src="js/images.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/screens-main.js"></script>
+  <script src="js/screens-flow.js"></script>
+  <script src="js/screens-organizer.js"></script>
+  <script src="js/screens-admin.js"></script>
+  <script src="js/screens-chat.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- Safety net: shows a clear message instead of a blank page when only index.html was uploaded -->
+  <noscript>Please enable JavaScript to use Sportyfy.</noscript>
+  <script>
+    if (typeof go !== 'function') {
+      document.body.innerHTML = '<div style="font-family:sans-serif;max-width:420px;margin:60px auto;padding:20px;line-height:1.5"><h2>Sportyfy files are missing</h2><p>Upload the <b>whole folder</b> to GitHub (index.html + css/ + js/ + assets/), not only index.html. Or use the single-file version.</p></div>';
+    }
+  </script>
+</body>
 </html>

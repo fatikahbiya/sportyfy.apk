@@ -18,22 +18,22 @@ h3{font-size:16px;font-weight:700;letter-spacing:-.2px}
 .cap{font-size:12px;font-weight:500;color:var(--mut)}
 .row{display:flex;align-items:center;gap:8px}.sb{justify-content:space-between}
 i[data-lucide],svg.lucide{width:16px;height:16px;stroke-width:2.2}
-.ph{position:relative;background:var(--img,none) center/cover no-repeat,var(--g);overflow:hidden;transition:transform .5s}
+.ph{position:relative;background:var(--g) center/cover no-repeat;overflow:hidden;transition:transform .5s}
 .skate{--g:linear-gradient(150deg,#FF6B2C,#7B4DFF)}.badminton{--g:linear-gradient(150deg,#19C3F0,#0B1437)}.basketball{--g:linear-gradient(150deg,#FF6B2C,#1b1f4d)}.futsal{--g:linear-gradient(150deg,#9ad81a,#0B1437)}.running{--g:linear-gradient(150deg,#7B4DFF,#1E6BFF)}.volleyball{--g:linear-gradient(150deg,#ffb12c,#FF6B2C)}.people{--g:linear-gradient(150deg,#1E6BFF,#7B4DFF)}
 .card:active .ph,.tap:active{transform:scale(.97)}.card:active .ph{transform:scale(1.04)}
 .tap{transition:transform .15s;cursor:pointer}
 .badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:5px 9px;border-radius:99px;background:var(--lime);color:var(--navy)}
-.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:16px;padding:16px;font:700 15px 'Plus Jakarta Sans';background:var(--lime);color:var(--navy);cursor:pointer;transition:transform .15s}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:16px;padding:16px;font:700 15px 'Plus Jakarta Sans',Helvetica,sans-serif;background:var(--lime);color:var(--navy);cursor:pointer;transition:transform .15s}
 .btn:active{transform:scale(.97)}.btn.dk{background:var(--navy);color:#fff}.btn.ol{background:transparent;border:1.5px solid var(--navy)}
 .sm{padding:11px 16px;width:auto;font-size:13px;border-radius:14px}
 .crd{background:var(--w);border:1px solid var(--line);border-radius:20px;box-shadow:0 2px 10px #0B14370a;overflow:hidden}
 .h{display:flex;gap:12px;overflow-x:auto;padding:0 20px;scrollbar-width:none}.h::-webkit-scrollbar{display:none}
 .search{display:flex;gap:10px;align-items:center;background:var(--w);border:1px solid var(--line);border-radius:16px;padding:14px;color:var(--mut);font-size:14px;font-weight:500}
-.search input{border:0;outline:0;flex:1;font:500 14px 'Plus Jakarta Sans';background:none;color:var(--navy)}
-.chip{flex:none;padding:10px 16px;border-radius:99px;border:1px solid var(--line);background:var(--w);font:600 13px 'Plus Jakarta Sans';cursor:pointer;color:var(--navy);transition:.2s}
+.search input{border:0;outline:0;flex:1;font:500 14px 'Plus Jakarta Sans',Helvetica,sans-serif;background:none;color:var(--navy)}
+.chip{flex:none;padding:10px 16px;border-radius:99px;border:1px solid var(--line);background:var(--w);font:600 13px 'Plus Jakarta Sans',Helvetica,sans-serif;cursor:pointer;color:var(--navy);transition:.2s}
 .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
 nav{position:absolute;left:0;right:0;bottom:0;background:var(--w);border-top:1px solid var(--line);display:flex;padding:10px 6px calc(10px + env(safe-area-inset-bottom,0px))}
-nav button{flex:1;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:4px;font:600 10.5px 'Plus Jakarta Sans';color:var(--mut);cursor:pointer;position:relative}
+nav button{flex:1;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:4px;font:600 10.5px 'Plus Jakarta Sans',Helvetica,sans-serif;color:var(--mut);cursor:pointer;position:relative}
 nav button.on{color:var(--navy)}nav button.on:after{content:"";position:absolute;top:-11px;width:22px;height:3px;border-radius:3px;background:var(--cyan)}
 nav button.on i,nav button.on svg{stroke:var(--blue)}
 .cta{position:absolute;left:0;right:0;bottom:0;padding:14px 20px calc(16px + env(safe-area-inset-bottom,0px));background:linear-gradient(#F6F5F000,var(--bg) 30%)}
@@ -50,3 +50,13 @@ nav button.on i,nav button.on svg{stroke:var(--blue)}
 .ck svg{width:54px;height:54px;stroke-width:3.2;stroke-dasharray:60;animation:dr .6s .3s both}
 @keyframes sc{from{transform:scale(0)}}@keyframes dr{from{stroke-dashoffset:60}}
 .up{position:absolute;inset:0;background:var(--navy);display:flex;flex-direction:column;justify-content:center;padding:30px;color:#fff;z-index:9}
+
+.toast{position:absolute;left:20px;right:20px;bottom:100px;background:var(--navy);color:#fff;padding:13px 16px;border-radius:14px;font:600 13px 'Plus Jakarta Sans',Helvetica,sans-serif;z-index:50;animation:in .3s}
+.spin{width:34px;height:34px;margin:0 auto;border:4px solid var(--line);border-top-color:var(--blue);border-radius:50%;animation:rot .8s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+button:disabled{cursor:not-allowed}
+#v.noscroll{padding-bottom:0;overflow:hidden}
+.dots{display:flex;gap:4px}.dots span{width:6px;height:6px;border-radius:50%;background:var(--mut);animation:bn 1s infinite}.dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}
+@keyframes bn{50%{transform:translateY(-4px);opacity:.5}}
+/* Print / Save as PDF: only the receipt is printed */
+@media print{@page{margin:14mm}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}html,body{height:auto;background:#fff;display:block}.phone,.app{max-width:none;width:100%;height:auto!important;min-height:0!important;overflow:visible;border:0;box-shadow:none;background:#fff}#v{height:auto;overflow:visible;padding:0;animation:none}nav,#sh,.noprint,.cta{display:none!important}#receipt{max-width:380px;margin:0 auto;box-shadow:none;break-inside:avoid}.pad{padding:0}}
