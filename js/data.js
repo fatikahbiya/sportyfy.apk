@@ -4,7 +4,7 @@ const $=s=>document.querySelector(s),R=n=>'Rp'+n.toLocaleString('en-US');
 const SP=['Skateboard','Badminton','Basketball','Futsal','Running','Volleyball'],K=s=>s==='Skateboard'?'skate':s.toLowerCase();
 // level: Beginner | Intermediate | Advanced   ·  dt: today | wkend | week   ·  mx = max participants, ft = already joined
 const A=[
-{id:1,t:'Beginner Skate Day',s:'skate',loc:'Skatepark, Surakarta',area:'Surakarta',d:'Sun, 18 Oct 2026',dt:'wkend',tm:'15:00–17:00',p:25000,lv:'Beginner',mx:10,ft:7,org:'Raka Pratama',rt:4.9,rv:32,desc:'A fun, beginner-friendly session for people trying skateboarding for the first time.'},
+{id:1,t:'Beginner Skate Day',s:'skate',loc:'Skatepark, Surakarta',area:'Surakarta',d:'Sun, 18 Oct 2026',dt:'wkend',tm:'15:00–17:00',p:25000,lv:'Beginner',mx:10,ft:7,org:'Muhammad Ziqry A',rt:4.9,rv:32,desc:'A fun, beginner-friendly session for people trying skateboarding for the first time.'},
 {id:2,t:'Badminton Open Play',s:'badminton',loc:'GOR Manahan',area:'Surakarta',d:'Tonight',dt:'today',tm:'19:00',p:25000,lv:'Intermediate',mx:12,ft:9,org:'Dimas Arya',rt:4.7,rv:58,desc:'Rotating doubles on two courts. Shuttlecocks provided.'},
 {id:3,t:'Sunday Running Club',s:'running',loc:'Stadion Manahan',area:'Surakarta',d:'Sun',dt:'wkend',tm:'06:00',p:0,lv:'Beginner',mx:30,ft:18,org:'Solo Runners',rt:4.8,rv:120,desc:'An easy 5K loop with a coffee stop after. All paces welcome.'},
 {id:4,t:'3v3 Street Hoops',s:'basketball',loc:'Lapangan Kottabarat',area:'Surakarta',d:'Sat',dt:'wkend',tm:'16:00',p:20000,lv:'Intermediate',mx:6,ft:5,org:'Hoops Jogja',rt:4.6,rv:41,desc:'Quick half-court games. Winners stay on.'},
