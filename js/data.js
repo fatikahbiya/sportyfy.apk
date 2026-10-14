@@ -20,6 +20,7 @@ const A = [
     mx: 10,
     ft: 7,
     org: "Raka Pratama",
+    orgImg: IMG.coach, // foto penyelenggara (hapus baris ini kalau tidak mau ada foto)
     rt: 4.9,
     rv: 32,
     desc: "A fun, beginner-friendly session for people trying skateboarding for the first time.",
