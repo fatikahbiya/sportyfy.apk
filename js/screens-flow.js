@@ -1,43 +1,146 @@
 // Sportyfy · screens-flow
-function splash(){return`<div style="height:100%;background:var(--navy);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:32px;position:relative;overflow:hidden"><div style="position:absolute;width:320px;height:320px;border-radius:50%;background:var(--vi);right:-120px;top:-90px"></div><div style="position:absolute;width:200px;height:200px;border-radius:50%;background:var(--cyan);left:-90px;bottom:-60px"></div><div style="position:relative"><div style="font-size:46px;font-weight:800;letter-spacing:-2px">sporty<span style="color:var(--lime)">fy</span></div><div style="opacity:.8;font-weight:600;margin-top:6px">Find. Join. Book. Pay. Play.</div></div></div>`}
-function onboard(){const c=['var(--cyan)','var(--lime)','var(--or)','var(--vi)','var(--navy)'];return`<div style="position:relative">${ph('skate','',`height:430px`,IMG.onboarding)}<div style="position:absolute;inset:0;background:linear-gradient(#F6F5F000 55%,var(--bg))"></div></div><div class="pad" style="margin-top:-56px;position:relative"><h1 style="font-size:40px">Find your next<br>way to play.</h1><div class="row" style="gap:6px;margin:14px 0 22px">${['Find','Join','Book','Pay','Play'].map((x,i)=>`<span class="badge" style="background:${c[i]};color:${i>2?'#fff':'var(--navy)'}">${x}</span>`).join('')}</div><button class="btn dk" onclick="go('register')">Get started</button><button class="btn ol" style="margin-top:10px" onclick="go('login')">I already have an account</button></div>`}
-function login(){return`<div class="pad" style="padding-top:24px">${bk('onboard')}<h1 style="margin:22px 0 6px">Welcome<br>back.</h1><div class="sub" style="margin-bottom:24px">Ready to play?</div>${fl('Email','email','fatikah@mail.com')}${fl('Password','password','password')}<button class="btn dk" style="margin-top:8px" onclick="go('home')">Log in</button><div class="sub" style="text-align:center;margin-top:18px">New here? <b style="color:var(--blue)" onclick="go('register')">Create account</b></div></div>`}
-function register(){return`<div class="pad" style="padding-top:24px">${bk('onboard')}<h1 style="margin:22px 0 6px">Create your<br>account.</h1><div class="sub" style="margin-bottom:24px">Your first activity is minutes away.</div>${fl('Full name','text','Fatikah')}${fl('Email','email')}${fl('Password','password')}<button class="btn" style="margin-top:8px" onclick="go('home')">Create account</button><div class="sub" style="text-align:center;margin-top:18px">Have an account? <b style="color:var(--blue)" onclick="go('login')">Log in</b></div></div>`}
+function splash() {
+  return `<div style="height:100%;background:var(--navy);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:32px;position:relative;overflow:hidden"><div style="position:absolute;width:320px;height:320px;border-radius:50%;background:var(--vi);right:-120px;top:-90px"></div><div style="position:absolute;width:200px;height:200px;border-radius:50%;background:var(--cyan);left:-90px;bottom:-60px"></div><div style="position:relative"><div style="font-size:46px;font-weight:800;letter-spacing:-2px">sporty<span style="color:var(--lime)">fy</span></div><div style="opacity:.8;font-weight:600;margin-top:6px">Find. Join. Book. Pay. Play.</div></div></div>`;
+}
+function onboard() {
+  const c = ["var(--cyan)", "var(--lime)", "var(--or)", "var(--vi)", "var(--navy)"];
+  return `<div style="position:relative">${ph("skate", "", `height:430px`, IMG.onboarding)}<div style="position:absolute;inset:0;background:linear-gradient(#F6F5F000 55%,var(--bg))"></div></div><div class="pad" style="margin-top:-56px;position:relative"><h1 style="font-size:40px">Find your next<br>way to play.</h1><div class="row" style="gap:6px;margin:14px 0 22px">${["Find", "Join", "Book", "Pay", "Play"].map((x, i) => `<span class="badge" style="background:${c[i]};color:${i > 2 ? "#fff" : "var(--navy)"}">${x}</span>`).join("")}</div><button class="btn dk" onclick="go('register')">Get started</button><button class="btn ol" style="margin-top:10px" onclick="go('login')">I already have an account</button></div>`;
+}
+function login() {
+  return `<div class="pad" style="padding-top:24px">${bk("onboard")}<h1 style="margin:22px 0 6px">Welcome<br>back.</h1><div class="sub" style="margin-bottom:24px">Ready to play?</div>${fl("Email", "email", "fatikah@mail.com")}${fl("Password", "password", "password")}<button class="btn dk" style="margin-top:8px" onclick="go('home')">Log in</button><div class="sub" style="text-align:center;margin-top:18px">New here? <b style="color:var(--blue)" onclick="go('register')">Create account</b></div></div>`;
+}
+function register() {
+  return `<div class="pad" style="padding-top:24px">${bk("onboard")}<h1 style="margin:22px 0 6px">Create your<br>account.</h1><div class="sub" style="margin-bottom:24px">Your first activity is minutes away.</div>${fl("Full name", "text", "Fatikah")}${fl("Email", "email")}${fl("Password", "password")}<button class="btn" style="margin-top:8px" onclick="go('home')">Create account</button><div class="sub" style="text-align:center;margin-top:18px">Have an account? <b style="color:var(--blue)" onclick="go('login')">Log in</b></div></div>`;
+}
 // ---- Receipt (printable / save as PDF) ----
 
 // ---- Booking: buyer name + email are required ----
-function chk(){const e=S.buyer;S.err=!(e.name.trim()&&/^\S+@\S+\.\S+$/.test(e.email.trim()));S.err?draw():go('checkout')}
-function booking(){const a=cur(),b='style="background:var(--bg);border:1px solid var(--line)"',left=a.mx-a.ft,max=Math.min(4,left);
-return`<div class="pad" style="padding-top:20px">${bk('detail')}<h1 style="margin:20px 0">Book<br>your spot</h1><div class="crd row" style="gap:0">${ph(a.s,'',`width:34%;height:96px;flex:none`)}<div style="padding:14px"><h3>${a.t}</h3><div class="cap" style="margin-top:6px;line-height:1.6">${a.d} · ${a.tm}<br>${a.loc}</div></div></div>
-<h3 style="margin:22px 0 12px">Your details</h3>${field('Full name','S.buyer',S.buyer,'name','text','Your name')}${field('Email (for your receipt)','S.buyer',S.buyer,'email','email','you@email.com')}${S.err?'<div class="cap" style="color:#B3380A;font-weight:700;margin:-4px 0 10px">Please enter your name and a valid email.</div>':''}
-<div class="crd row sb" style="padding:14px 16px;margin:8px 0 16px"><div><h3>Participants</h3><div class="cap">${left} spots left · max ${max} per booking</div></div><div class="row" style="gap:14px"><button class="ib tap" ${b} onclick="S.n=Math.max(1,S.n-1);draw()">${ic('minus')}</button><b style="font-size:18px">${S.n}</b><button class="ib tap" ${b} onclick="S.n=Math.min(${max},S.n+1);draw()">${ic('plus')}</button></div></div>
-${S.n>1?`<h3 style="margin-bottom:10px">Guests</h3>${Array.from({length:S.n-1},(_,i)=>{S.names[i+1]=S.names[i+1]||'';return field('Guest '+(i+1)+' name','S.names',S.names,i+1,'text','Full name')}).join('')}`:''}</div><div class="cta"><button class="btn" onclick="chk()">Continue to Checkout</button></div>`}
+function chk() {
+  const e = S.buyer;
+  S.err = !(e.name.trim() && /^\S+@\S+\.\S+$/.test(e.email.trim()));
+  S.err ? draw() : go("checkout");
+}
+function booking() {
+  const a = cur(),
+    b = 'style="background:var(--bg);border:1px solid var(--line)"',
+    left = a.mx - a.ft,
+    max = Math.min(4, left);
+  return `<div class="pad" style="padding-top:20px">${bk("detail")}<h1 style="margin:20px 0">Book<br>your spot</h1><div class="crd row" style="gap:0">${ph(a.s, "", `width:34%;height:96px;flex:none`)}<div style="padding:14px"><h3>${a.t}</h3><div class="cap" style="margin-top:6px;line-height:1.6">${a.d} · ${a.tm}<br>${a.loc}</div></div></div>
+<h3 style="margin:22px 0 12px">Your details</h3>${field("Full name", "S.buyer", S.buyer, "name", "text", "Your name")}${field("Email (for your receipt)", "S.buyer", S.buyer, "email", "email", "you@email.com")}${S.err ? '<div class="cap" style="color:#B3380A;font-weight:700;margin:-4px 0 10px">Please enter your name and a valid email.</div>' : ""}
+<div class="crd row sb" style="padding:14px 16px;margin:8px 0 16px"><div><h3>Participants</h3><div class="cap">${left} spots left · max ${max} per booking</div></div><div class="row" style="gap:14px"><button class="ib tap" ${b} onclick="S.n=Math.max(1,S.n-1);draw()">${ic("minus")}</button><b style="font-size:18px">${S.n}</b><button class="ib tap" ${b} onclick="S.n=Math.min(${max},S.n+1);draw()">${ic("plus")}</button></div></div>
+${
+  S.n > 1
+    ? `<h3 style="margin-bottom:10px">Guests</h3>${Array.from({ length: S.n - 1 }, (_, i) => {
+        S.names[i + 1] = S.names[i + 1] || "";
+        return field("Guest " + (i + 1) + " name", "S.names", S.names, i + 1, "text", "Full name");
+      }).join("")}`
+    : ""
+}</div><div class="cta"><button class="btn" onclick="chk()">Continue to Checkout</button></div>`;
+}
 
 // ---- Checkout ----
-function checkout(){const a=cur(),n=S.n,free=!a.p;return`<div class="pad" style="padding-top:20px">${bk('booking')}<h1 style="margin:20px 0">Booking<br>summary</h1><div class="crd row" style="gap:0">${ph(a.s,'',`width:34%;height:110px;flex:none`)}<div style="padding:14px"><h3>${a.t}</h3><div class="cap" style="margin-top:6px;line-height:1.7">${a.d}<br>${a.tm}<br>${a.loc}</div></div></div>
-<div class="crd" style="padding:14px 16px;margin:16px 0"><div class="cap" style="font-weight:700;margin-bottom:6px">Booked by</div><div style="font-weight:700">${S.buyer.name}</div><div class="cap">${S.buyer.email}</div>${n>1?`<div class="cap" style="margin-top:6px">+ ${n-1} guest${n>2?'s':''}</div>`:''}</div>
-<div class="crd" style="padding:16px;margin-bottom:12px"><div class="cap" style="margin-bottom:10px;font-weight:700">${n} participant${n>1?'s':''}</div>${prc(a)}</div><div class="cap" style="line-height:1.6">The organizer receives the activity fee. Sportyfy keeps the service fee. Free cancellation up to 24 hours before start.</div></div><div class="cta"><button class="btn dk" onclick="${free?'pay()':"go('payment')"}">${free?'Confirm free spot':'Continue to Payment'}</button></div>`}
+function checkout() {
+  const a = cur(),
+    n = S.n,
+    free = !a.p;
+  return `<div class="pad" style="padding-top:20px">${bk("booking")}<h1 style="margin:20px 0">Booking<br>summary</h1><div class="crd row" style="gap:0">${ph(a.s, "", `width:34%;height:110px;flex:none`)}<div style="padding:14px"><h3>${a.t}</h3><div class="cap" style="margin-top:6px;line-height:1.7">${a.d}<br>${a.tm}<br>${a.loc}</div></div></div>
+<div class="crd" style="padding:14px 16px;margin:16px 0"><div class="cap" style="font-weight:700;margin-bottom:6px">Booked by</div><div style="font-weight:700">${S.buyer.name}</div><div class="cap">${S.buyer.email}</div>${n > 1 ? `<div class="cap" style="margin-top:6px">+ ${n - 1} guest${n > 2 ? "s" : ""}</div>` : ""}</div>
+<div class="crd" style="padding:16px;margin-bottom:12px"><div class="cap" style="margin-bottom:10px;font-weight:700">${n} participant${n > 1 ? "s" : ""}</div>${prc(a)}</div><div class="cap" style="line-height:1.6">The organizer receives the activity fee. Sportyfy keeps the service fee. Free cancellation up to 24 hours before start.</div></div><div class="cta"><button class="btn dk" onclick="${free ? "pay()" : "go('payment')"}">${free ? "Confirm free spot" : "Continue to Payment"}</button></div>`;
+}
 
 // ---- Payment (QRIS only, SIMULATED) ----
-function payment(){const a=cur(),t=R((a.p+fee(a))*S.n);return`<div class="pad" style="padding-top:20px">${bk('checkout')}<h1 style="margin:20px 0 10px">Scan to pay</h1><div class="crd row" style="padding:12px 14px;gap:10px;background:#FFF4D6;border-color:#F3DC9A;margin-bottom:18px">${ic('flask-conical')}<span class="cap" style="color:var(--navy);font-weight:700">DEMO · simulated payment. No real money is charged.</span></div><div class="crd" style="padding:22px 20px;text-align:center"><div class="badge" style="background:var(--navy);color:#fff">QRIS</div><div id="qr-slot" style="width:224px;height:224px;margin:16px auto;padding:12px;border:1px solid var(--line);border-radius:18px;background:#fff">${QR}</div><div class="cap">Sportyfy · ${S.n} participant${S.n>1?'s':''}</div><div style="font-size:28px;font-weight:800;letter-spacing:-.8px;margin-top:4px">${t}</div></div><div class="cap" style="text-align:center;margin-top:14px">Your spot is only confirmed after payment is confirmed.</div></div><div class="cta"><button class="btn" onclick="pay()">Simulate payment · ${t}</button></div>`}
+function payment() {
+  const a = cur(),
+    t = R((a.p + fee(a)) * S.n);
+  return `<div class="pad" style="padding-top:20px">${bk("checkout")}<h1 style="margin:20px 0 10px">Scan to pay</h1><div class="crd row" style="padding:12px 14px;gap:10px;background:#FFF4D6;border-color:#F3DC9A;margin-bottom:18px">${ic("flask-conical")}<span class="cap" style="color:var(--navy);font-weight:700">DEMO · simulated payment. No real money is charged.</span></div><div class="crd" style="padding:22px 20px;text-align:center"><div class="badge" style="background:var(--navy);color:#fff">QRIS</div><div id="qr-slot" style="width:224px;height:224px;margin:16px auto;padding:12px;border:1px solid var(--line);border-radius:18px;background:#fff">${QRIS}</div><div class="cap">Sportyfy · ${S.n} participant${S.n > 1 ? "s" : ""}</div><div style="font-size:28px;font-weight:800;letter-spacing:-.8px;margin-top:4px">${t}</div></div><div class="cap" style="text-align:center;margin-top:14px">Your spot is only confirmed after payment is confirmed.</div></div><div class="cta"><button class="btn" onclick="pay()">Simulate payment · ${t}</button></div>`;
+}
 // Creates the booking only after the (simulated) confirmation arrives
-function pay(){if(S.paying)return;const a=cur(),n=S.n,fe=fee(a)*n,paid=a.p*n+fe;S.paying=1;draw();
-setTimeout(()=>{S.paying=0;S.tx++;a.ft=Math.min(a.mx,a.ft+n);syncA(a);
-S.bk.unshift({...a,id2:'SPY-'+String(S.tx).padStart(3,'0'),paid,fee:fe,n,at:now(),m:paid?'QRIS (demo)':'Free',st:'Paid',day:6,buyer:{...S.buyer},names:[S.buyer.name,...S.names.slice(1,n)].map((x,i)=>x||'Guest '+(i+1))});
-S.rc=S.bk[0];S.n=1;S.names=[];go('success')},paid?1600:300)}
-function cancelBk(){const b=S.rc,a=A.find(x=>x.id===b.id);b.st='Refunded';if(a){a.ft=Math.max(0,a.ft-b.n);syncA(a)}S.sheet=0;go('ticket');toast('Booking cancelled · refund requested (demo)')}
+function pay() {
+  if (S.paying) return;
+  const a = cur(),
+    n = S.n,
+    fe = fee(a) * n,
+    paid = a.p * n + fe;
+  S.paying = 1;
+  draw();
+  setTimeout(
+    () => {
+      S.paying = 0;
+      S.tx++;
+      a.ft = Math.min(a.mx, a.ft + n);
+      syncA(a);
+      S.bk.unshift({
+        ...a,
+        id2: "SPY-" + String(S.tx).padStart(3, "0"),
+        paid,
+        fee: fe,
+        n,
+        at: now(),
+        m: paid ? "QRIS (demo)" : "Free",
+        st: "Paid",
+        day: 6,
+        buyer: { ...S.buyer },
+        names: [S.buyer.name, ...S.names.slice(1, n)].map((x, i) => x || "Guest " + (i + 1)),
+      });
+      S.rc = S.bk[0];
+      S.n = 1;
+      S.names = [];
+      go("success");
+    },
+    paid ? 1600 : 300,
+  );
+}
+function cancelBk() {
+  const b = S.rc,
+    a = A.find((x) => x.id === b.id);
+  b.st = "Refunded";
+  if (a) {
+    a.ft = Math.max(0, a.ft - b.n);
+    syncA(a);
+  }
+  S.sheet = 0;
+  go("ticket");
+  toast("Booking cancelled · refund requested (demo)");
+}
 
 // ---- Success ----
-function success(){const b=S.bk[0];return`<div style="min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;position:relative;overflow:hidden"><div style="position:absolute;width:300px;height:300px;border-radius:50%;background:var(--vi);opacity:.15;top:-80px;right:-100px"></div><div class="ck">${ic('check')}</div><h1 style="font-size:42px;margin:22px 0 8px">You're in!</h1><div class="sub" style="max-width:260px;font-size:14px">Your spot for ${b.t} is confirmed.</div><div class="crd" style="width:100%;margin:20px 0;padding:16px;display:flex;flex-direction:column;gap:9px;font-size:13px;font-weight:600">${[['Booking ID',b.id2],['Name',b.buyer.name],['Email',b.buyer.email],['Date',b.d],['Time',b.tm],['Location',b.loc],['Payment','Paid · '+R(b.paid)]].map(([k,v])=>`<div class="row sb"><span class="cap">${k}</span><span style="text-align:right">${v}</span></div>`).join('')}</div><button class="btn dk" onclick="openTk('${b.id2}')">View ticket</button><button class="btn ol" style="margin-top:10px" onclick="go('home')">Back to Home</button><button class="btn sm" style="background:none;margin-top:6px" onclick="go('receipt')">${ic('receipt')}View receipt</button></div>`}
+function success() {
+  const b = S.bk[0];
+  return `<div style="min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;position:relative;overflow:hidden"><div style="position:absolute;width:300px;height:300px;border-radius:50%;background:var(--vi);opacity:.15;top:-80px;right:-100px"></div><div class="ck">${ic("check")}</div><h1 style="font-size:42px;margin:22px 0 8px">You're in!</h1><div class="sub" style="max-width:260px;font-size:14px">Your spot for ${b.t} is confirmed.</div><div class="crd" style="width:100%;margin:20px 0;padding:16px;display:flex;flex-direction:column;gap:9px;font-size:13px;font-weight:600">${[
+    ["Booking ID", b.id2],
+    ["Name", b.buyer.name],
+    ["Email", b.buyer.email],
+    ["Date", b.d],
+    ["Time", b.tm],
+    ["Location", b.loc],
+    ["Payment", "Paid · " + R(b.paid)],
+  ]
+    .map(
+      ([k, v]) =>
+        `<div class="row sb"><span class="cap">${k}</span><span style="text-align:right">${v}</span></div>`,
+    )
+    .join(
+      "",
+    )}</div><button class="btn dk" onclick="openTk('${b.id2}')">View ticket</button><button class="btn ol" style="margin-top:10px" onclick="go('home')">Back to Home</button><button class="btn sm" style="background:none;margin-top:6px" onclick="go('receipt')">${ic("receipt")}View receipt</button></div>`;
+}
 
 // ---- Ticket (booking details, cancel / refund) ----
-function ticket(){const b=S.rc,ref=b.st==='Refunded';return`<div class="pad" style="padding-top:20px">${bk('bookings')}<div class="crd" style="margin-top:16px;overflow:hidden">${ph(b.s,'',`height:130px`)}<div style="padding:16px 18px"><div class="row sb"><h2 style="font-size:22px">${b.t}</h2>${stChip(b.st)}</div><div class="cap" style="margin-top:8px;line-height:1.7">${b.d} · ${b.tm}<br>${b.loc}<br>Organizer: ${b.org}</div></div><div style="border-top:2px dashed var(--line);padding:16px 18px;text-align:center"><div style="width:130px;height:130px;margin:0 auto;opacity:${ref?.2:1}">${QR.replace('width="200" height="200"','width="130" height="130"')}</div><div style="font-weight:800;letter-spacing:1px;margin-top:8px">${b.id2}</div><div class="cap">${ref?'This ticket is no longer valid':'Show this code at check-in'}</div></div></div>
-<div class="crd" style="padding:14px 16px;margin:14px 0"><div class="cap" style="font-weight:700;margin-bottom:8px">Participants (${b.n})</div>${b.names.map(x=>`<div style="font-size:14px;font-weight:600;padding:3px 0">${x}</div>`).join('')}</div>
-${ref?`<div class="crd" style="padding:14px 16px;background:#FFF1E8;border-color:#F8D2BC"><b>Refund requested · ${R(b.paid)}</b><div class="cap" style="margin-top:4px;color:var(--navy);line-height:1.5">Returned to your original payment method in 1–3 business days (demo).</div></div>`:`<div class="cap" style="line-height:1.6;margin-bottom:14px">Free cancellation up to 24 hours before start, with a full refund.</div>`}
-${!ref?`<button class="btn" style="margin-bottom:10px" onclick="openRoom('a${b.id}')">${ic('message-circle')}Group chat</button>`:''}<button class="btn dk" onclick="go('receipt')">${ic('receipt')}View receipt</button>${!ref&&PAST.indexOf(b)<0?`<button class="btn ol" style="margin-top:10px;color:#B3380A;border-color:#B3380A" onclick="S.sheet='cancel';draw()">Cancel booking</button>`:''}</div>`}
+function ticket() {
+  const b = S.rc,
+    ref = b.st === "Refunded";
+  return `<div class="pad" style="padding-top:20px">${bk("bookings")}<div class="crd" style="margin-top:16px;overflow:hidden">${ph(b.s, "", `height:130px`)}<div style="padding:16px 18px"><div class="row sb"><h2 style="font-size:22px">${b.t}</h2>${stChip(b.st)}</div><div class="cap" style="margin-top:8px;line-height:1.7">${b.d} · ${b.tm}<br>${b.loc}<br>Organizer: ${b.org}</div></div><div style="border-top:2px dashed var(--line);padding:16px 18px;text-align:center"><div style="width:130px;height:130px;margin:0 auto;opacity:${ref ? 0.2 : 1}">${QR.replace('width="200" height="200"', 'width="130" height="130"')}</div><div style="font-weight:800;letter-spacing:1px;margin-top:8px">${b.id2}</div><div class="cap">${ref ? "This ticket is no longer valid" : "Show this code at check-in"}</div></div></div>
+<div class="crd" style="padding:14px 16px;margin:14px 0"><div class="cap" style="font-weight:700;margin-bottom:8px">Participants (${b.n})</div>${b.names.map((x) => `<div style="font-size:14px;font-weight:600;padding:3px 0">${x}</div>`).join("")}</div>
+${ref ? `<div class="crd" style="padding:14px 16px;background:#FFF1E8;border-color:#F8D2BC"><b>Refund requested · ${R(b.paid)}</b><div class="cap" style="margin-top:4px;color:var(--navy);line-height:1.5">Returned to your original payment method in 1–3 business days (demo).</div></div>` : `<div class="cap" style="line-height:1.6;margin-bottom:14px">Free cancellation up to 24 hours before start, with a full refund.</div>`}
+${!ref ? `<button class="btn" style="margin-bottom:10px" onclick="openRoom('a${b.id}')">${ic("message-circle")}Group chat</button>` : ""}<button class="btn dk" onclick="go('receipt')">${ic("receipt")}View receipt</button>${!ref && PAST.indexOf(b) < 0 ? `<button class="btn ol" style="margin-top:10px;color:#B3380A;border-color:#B3380A" onclick="S.sheet='cancel';draw()">Cancel booking</button>` : ""}</div>`;
+}
 
 // ---- Receipt (printable / save as PDF) ----
-function receipt(){const b=S.rc,row=(k,v)=>`<div class="row sb" style="font-size:13px;align-items:flex-start"><span class="cap">${k}</span><b style="text-align:right;max-width:62%;word-break:break-word">${v}</b></div>`,hr='<div style="border-top:1px dashed var(--line);margin:4px 0"></div>';
-return`<div class="pad" style="padding-top:20px"><div class="noprint">${bk('bookings')}</div><div id="receipt" class="crd" style="margin-top:16px"><div style="background:var(--navy);color:#fff;padding:20px"><div class="row sb"><div style="font-size:22px;font-weight:800;letter-spacing:-1px">sporty<span style="color:var(--lime)">fy</span></div>${stChip(b.st)}</div><div class="cap" style="color:#fff9;margin-top:18px">Payment receipt</div><div style="font-size:30px;font-weight:800;letter-spacing:-1px">${R(b.paid)}</div></div>
-<div style="padding:18px 20px;display:flex;flex-direction:column;gap:10px">${row('Receipt no.','TRX-'+b.id2.slice(4))}${row('Booking ID',b.id2)}${row('Paid on',b.at)}${row('Payment method',b.m)}${row('Status',b.st)}${hr}${row('Buyer name',b.buyer.name)}${row('Buyer email',b.buyer.email)}${hr}${row('Activity',b.t)}${row('Date',b.d)}${row('Time',b.tm)}${row('Location',b.loc)}${row('Organizer',b.org)}${row('Participants',b.n)}${hr}${row('Activity fee',R(b.paid-b.fee))}${row('Sportyfy service fee',R(b.fee))}<div class="row sb" style="font-size:16px;font-weight:800;margin-top:2px"><span>Total paid</span><span>${R(b.paid)}</span></div></div>
-<div style="border-top:2px dashed var(--line);padding:16px 20px;text-align:center"><div style="width:110px;height:110px;margin:0 auto">${QR.replace('width="200" height="200"','width="110" height="110"')}</div><div class="cap" style="margin-top:6px">Show this code at check-in</div>${/demo/.test(b.m)?'<div class="cap" style="margin-top:10px;font-weight:700">DEMO receipt · generated by a prototype, no real payment was made.</div>':''}</div></div><div class="cap noprint" style="text-align:center;margin:14px 0 40px">Tap Download PDF, then choose "Save as PDF" in the print window.</div></div><div class="cta noprint"><button class="btn dk" onclick="dlRc()">${ic('download')}Download PDF</button></div>`}
+function receipt() {
+  const b = S.rc,
+    row = (k, v) =>
+      `<div class="row sb" style="font-size:13px;align-items:flex-start"><span class="cap">${k}</span><b style="text-align:right;max-width:62%;word-break:break-word">${v}</b></div>`,
+    hr = '<div style="border-top:1px dashed var(--line);margin:4px 0"></div>';
+  return `<div class="pad" style="padding-top:20px"><div class="noprint">${bk("bookings")}</div><div id="receipt" class="crd" style="margin-top:16px"><div style="background:var(--navy);color:#fff;padding:20px"><div class="row sb"><div style="font-size:22px;font-weight:800;letter-spacing:-1px">sporty<span style="color:var(--lime)">fy</span></div>${stChip(b.st)}</div><div class="cap" style="color:#fff9;margin-top:18px">Payment receipt</div><div style="font-size:30px;font-weight:800;letter-spacing:-1px">${R(b.paid)}</div></div>
+<div style="padding:18px 20px;display:flex;flex-direction:column;gap:10px">${row("Receipt no.", "TRX-" + b.id2.slice(4))}${row("Booking ID", b.id2)}${row("Paid on", b.at)}${row("Payment method", b.m)}${row("Status", b.st)}${hr}${row("Buyer name", b.buyer.name)}${row("Buyer email", b.buyer.email)}${hr}${row("Activity", b.t)}${row("Date", b.d)}${row("Time", b.tm)}${row("Location", b.loc)}${row("Organizer", b.org)}${row("Participants", b.n)}${hr}${row("Activity fee", R(b.paid - b.fee))}${row("Sportyfy service fee", R(b.fee))}<div class="row sb" style="font-size:16px;font-weight:800;margin-top:2px"><span>Total paid</span><span>${R(b.paid)}</span></div></div>
+<div style="border-top:2px dashed var(--line);padding:16px 20px;text-align:center"><div style="width:110px;height:110px;margin:0 auto">${QR.replace('width="200" height="200"', 'width="110" height="110"')}</div><div class="cap" style="margin-top:6px">Show this code at check-in</div>${/demo/.test(b.m) ? '<div class="cap" style="margin-top:10px;font-weight:700">DEMO receipt · generated by a prototype, no real payment was made.</div>' : ""}</div></div><div class="cap noprint" style="text-align:center;margin:14px 0 40px">Tap Download PDF, then choose "Save as PDF" in the print window.</div></div><div class="cta noprint"><button class="btn dk" onclick="dlRc()">${ic("download")}Download PDF</button></div>`;
+}

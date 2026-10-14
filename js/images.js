@@ -8,39 +8,42 @@
 // ============================================================
 const IMG = {
   // Onboarding screen · top photo
-  onboarding: 'assets/images/onboarding/cover.jpg',
+  onboarding: "assets/images/onboarding.jpg",
 
   // Home screen · big featured card (Beginner Skate Day)
-  homeHero: 'assets/images/home/hero-skate-day.jpg',
+  homeHero: "assets/images/homeHero.jpg",
 
   // Coach card on Activity detail · square 600x600
-  coach: 'assets/images/people/coach-raka.jpg',
+  coach: "assets/images/coach.jpg",
+
+  // Payment screen · your real QRIS (replace the file to change it)
+  qris: 'assets/images/qris.jpg',
 
   // Profile screen avatar · square 600x600
-  profile: 'assets/images/people/profile-fatikah.jpg',
+  profile: "assets/images/profile.jpg",
 
   // Sport photos · used on Home (What are you into?), Explore,
   // Search, Activity detail hero, Booking, Checkout, My Bookings
   sport: {
-    skate: 'assets/images/sports/skateboard.jpg',
-    badminton: 'assets/images/sports/badminton.jpg',
-    basketball: 'assets/images/sports/basketball.jpg',
-    futsal: 'assets/images/sports/futsal.jpg',
-    running: 'assets/images/sports/running.jpg',
-    volleyball: 'assets/images/sports/volleyball.jpg',
+    skate: "assets/images/sport/skate.jpg",
+    badminton: "assets/images/sport/badminton.jpg",
+    basketball: "assets/images/sport/basketball.jpg",
+    futsal: "assets/images/sport/futsal.jpg",
+    running: "assets/images/sport/running.jpg",
+    volleyball: "assets/images/sport/volleyball.jpg",
   },
 
   // Community photos · Home (Find your people), Community list,
   // featured card and Community detail cover
   community: {
-    skate: 'assets/images/communities/skateboard-solo.jpg',
-    running: 'assets/images/communities/solo-runners.jpg',
-    badminton: 'assets/images/communities/solo-badminton.jpg',
-    futsal: 'assets/images/communities/solo-futsal-squad.jpg',
-    basketball: 'assets/images/communities/hoops-jogja.jpg',
-    volleyball: 'assets/images/communities/spike-club-kampus.jpg',
+    skate: "assets/images/community/skate.jpg",
+    running: "assets/images/community/running.jpg",
+    badminton: "assets/images/community/badminton.jpg",
+    futsal: "assets/images/community/futsal.jpg",
+    basketball: "assets/images/community/basketball.jpg",
+    volleyball: "assets/images/community/volleyball.jpg",
   },
 };
 
 // helper used by the screens (don't edit)
-const pic = p => p ? `background-image:url('${p}');` : '';
+const pic = (p) => (p ? `background-image:url('${p}');` : "");
