@@ -1,0 +1,52 @@
+/* Sportyfy · styles */
+:root{--navy:#0B1437;--blue:#1E6BFF;--cyan:#19C3F0;--lime:#C6F432;--or:#FF6B2C;--vi:#7B4DFF;--bg:#F6F5F0;--w:#fff;--line:#E4E2DA;--mut:#6B7190;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme=light]){color-scheme:light}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{font-family:'Plus Jakarta Sans',Helvetica,sans-serif;background:#DCDAD0;color:var(--navy);display:flex;justify-content:center;align-items:center}
+.phone{width:100%;max-width:390px}
+.app{position:relative;width:100%;max-width:390px;height:min(844px,100dvh);min-height:min(844px,100dvh);background:var(--bg);overflow:hidden}
+@media(min-width:500px){body{background:#E9E8E3}.app{border:1px solid #D4D2C8;box-shadow:0 20px 60px #0B143720}}
+#v{height:100%;overflow-y:auto;padding-bottom:96px;animation:in .35s ease;scrollbar-width:none}
+#v::-webkit-scrollbar{display:none}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.pad{padding:0 20px}
+h1{font-size:34px;line-height:1.05;font-weight:800;letter-spacing:-1.2px}
+h2{font-size:24px;line-height:1.1;font-weight:800;letter-spacing:-.6px}
+h3{font-size:16px;font-weight:700;letter-spacing:-.2px}
+.sub{font-size:13px;color:var(--mut);font-weight:500}
+.cap{font-size:12px;font-weight:500;color:var(--mut)}
+.row{display:flex;align-items:center;gap:8px}.sb{justify-content:space-between}
+i[data-lucide],svg.lucide{width:16px;height:16px;stroke-width:2.2}
+.ph{position:relative;background:var(--img,none) center/cover no-repeat,var(--g);overflow:hidden;transition:transform .5s}
+.skate{--g:linear-gradient(150deg,#FF6B2C,#7B4DFF)}.badminton{--g:linear-gradient(150deg,#19C3F0,#0B1437)}.basketball{--g:linear-gradient(150deg,#FF6B2C,#1b1f4d)}.futsal{--g:linear-gradient(150deg,#9ad81a,#0B1437)}.running{--g:linear-gradient(150deg,#7B4DFF,#1E6BFF)}.volleyball{--g:linear-gradient(150deg,#ffb12c,#FF6B2C)}.people{--g:linear-gradient(150deg,#1E6BFF,#7B4DFF)}
+.card:active .ph,.tap:active{transform:scale(.97)}.card:active .ph{transform:scale(1.04)}
+.tap{transition:transform .15s;cursor:pointer}
+.badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:5px 9px;border-radius:99px;background:var(--lime);color:var(--navy)}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:16px;padding:16px;font:700 15px 'Plus Jakarta Sans';background:var(--lime);color:var(--navy);cursor:pointer;transition:transform .15s}
+.btn:active{transform:scale(.97)}.btn.dk{background:var(--navy);color:#fff}.btn.ol{background:transparent;border:1.5px solid var(--navy)}
+.sm{padding:11px 16px;width:auto;font-size:13px;border-radius:14px}
+.crd{background:var(--w);border:1px solid var(--line);border-radius:20px;box-shadow:0 2px 10px #0B14370a;overflow:hidden}
+.h{display:flex;gap:12px;overflow-x:auto;padding:0 20px;scrollbar-width:none}.h::-webkit-scrollbar{display:none}
+.search{display:flex;gap:10px;align-items:center;background:var(--w);border:1px solid var(--line);border-radius:16px;padding:14px;color:var(--mut);font-size:14px;font-weight:500}
+.search input{border:0;outline:0;flex:1;font:500 14px 'Plus Jakarta Sans';background:none;color:var(--navy)}
+.chip{flex:none;padding:10px 16px;border-radius:99px;border:1px solid var(--line);background:var(--w);font:600 13px 'Plus Jakarta Sans';cursor:pointer;color:var(--navy);transition:.2s}
+.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+nav{position:absolute;left:0;right:0;bottom:0;background:var(--w);border-top:1px solid var(--line);display:flex;padding:10px 6px calc(10px + env(safe-area-inset-bottom,0px))}
+nav button{flex:1;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:4px;font:600 10.5px 'Plus Jakarta Sans';color:var(--mut);cursor:pointer;position:relative}
+nav button.on{color:var(--navy)}nav button.on:after{content:"";position:absolute;top:-11px;width:22px;height:3px;border-radius:3px;background:var(--cyan)}
+nav button.on i,nav button.on svg{stroke:var(--blue)}
+.cta{position:absolute;left:0;right:0;bottom:0;padding:14px 20px calc(16px + env(safe-area-inset-bottom,0px));background:linear-gradient(#F6F5F000,var(--bg) 30%)}
+.ib{width:40px;height:40px;border-radius:14px;background:#ffffffee;border:0;display:grid;place-items:center;color:var(--navy);cursor:pointer}
+.fav.on svg{fill:var(--or);stroke:var(--or);animation:pop .4s}
+@keyframes pop{50%{transform:scale(1.5)}}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px}.meta div{display:flex;gap:8px;align-items:center;font-size:13px;font-weight:600}
+.meta i,.meta svg{color:var(--blue)}
+.sheet{position:absolute;inset:0;background:#0B143766;display:flex;align-items:flex-end;animation:fd .2s}
+.sheet>div{width:100%;background:var(--bg);border-radius:26px 26px 0 0;padding:20px;animation:up .3s}
+@keyframes fd{from{opacity:0}}@keyframes up{from{transform:translateY(100%)}}
+.pm{display:flex;align-items:center;gap:12px;padding:14px;border:1.5px solid var(--line);border-radius:16px;background:var(--w);cursor:pointer;font-weight:600;font-size:14px}.pm.on{border-color:var(--blue);box-shadow:0 0 0 3px #1E6BFF1a}
+.ck{width:110px;height:110px;border-radius:50%;background:var(--lime);display:grid;place-items:center;animation:sc .6s cubic-bezier(.3,1.6,.5,1)}
+.ck svg{width:54px;height:54px;stroke-width:3.2;stroke-dasharray:60;animation:dr .6s .3s both}
+@keyframes sc{from{transform:scale(0)}}@keyframes dr{from{stroke-dashoffset:60}}
+.up{position:absolute;inset:0;background:var(--navy);display:flex;flex-direction:column;justify-content:center;padding:30px;color:#fff;z-index:9}
